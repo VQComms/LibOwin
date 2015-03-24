@@ -5,6 +5,9 @@
 // Modifying this file may result in difficulties when upgrading the package.
 // All types are internal. Add a LIBOWIN_PUBLIC compilation symbol to make them public.
 
+// NOTE: uncomment the following line to make OwinContext, OwinRequest, and OwinResponse partials
+//#define LIBOWIN_PARTIALS
+
 namespace LibOwin.Infrastructure
 {
     using System;
@@ -1523,6 +1526,9 @@ namespace LibOwin
 #else
     internal
 #endif
+#if LIBOWIN_PARTIALS
+    partial
+#endif
     interface IOwinContext
     {
         /// <summary>
@@ -1574,6 +1580,9 @@ namespace LibOwin
     public
 #else
     internal
+#endif
+#if LIBOWIN_PARTIALS
+    partial
 #endif
     interface IOwinRequest
     {
@@ -1758,6 +1767,9 @@ namespace LibOwin
     public
 #else
     internal
+#endif
+#if LIBOWIN_PARTIALS
+    partial
 #endif
     interface IOwinResponse
     {
@@ -2141,6 +2153,9 @@ namespace LibOwin
 #else
     internal
 #endif
+#if LIBOWIN_PARTIALS
+    partial
+#endif
     class OwinContext : IOwinContext
     {
         /// <summary>
@@ -2233,6 +2248,9 @@ namespace LibOwin
     public
 #else
     internal
+#endif
+#if LIBOWIN_PARTIALS
+    partial
 #endif
     class OwinRequest : IOwinRequest
     {
@@ -2613,6 +2631,9 @@ namespace LibOwin
     public
 #else
     internal
+#endif
+#if LIBOWIN_PARTIALS
+    partial
 #endif
     class OwinResponse : IOwinResponse
     {
