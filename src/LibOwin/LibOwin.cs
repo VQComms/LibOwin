@@ -915,6 +915,7 @@ namespace LibOwin
     public partial class RequestCookieCollection { }
     public partial class ResponseCookieCollection { }
     public partial class IOwinResponseExtension { }
+    public partial class OwinEnvironmentExtension { }
 
     #endif
 
@@ -3606,5 +3607,18 @@ namespace LibOwin
             response.OnSendingHeaders(innerCallback, state);
         }
         
+    }
+
+    static partial class OwinEnvironmentExtension 
+    {
+        /// <summary>
+        /// Creates an <see cref="OwinContext"/> with the environment.
+        /// </summary>
+        /// <param name="env">Environment to wrap in an <see cref="OwinContext"/>.</param>
+        /// <returns>New <see cref="OwinContext"/>.</returns>
+        public static OwinContext AsOwinContext(this IDictionary<string, object> env)
+        {
+            return new OwinContext(env);
+        }
     }
 }
