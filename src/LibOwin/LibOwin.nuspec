@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
-    <metadata>
+<package>
+    <metadata minClientVersion="3.3">
         <id>LibOwin</id>
         <version>1.1.0</version>
         <authors>Damian Hickey</authors>
@@ -15,8 +15,8 @@
         <releaseNotes>Straight import of Microsoft.Owin.OwinContext and related types without modifications (except for security)</releaseNotes>
         <tags>owin, framework, katana</tags>
         <frameworkAssemblies/>
+        <contentFiles>
+          <files include="Content/App_Packages/LibOwin.cs.pp"/>
+        </contentFiles>
     </metadata>
-    <files>
-        <file src="LibOwin.cs.pp" target="content\net45\App_Packages\LibOwin.1.0\LibOwin.cs.pp" />
-    </files>
 </package>

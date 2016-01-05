@@ -12,7 +12,7 @@ if(Test-Path Env:\APPVEYOR_BUILD_NUMBER){
 $packageConfigs = Get-ChildItem . -Recurse | where{$_.Name -eq "packages.config"}
 foreach($packageConfig in $packageConfigs){
 	Write-Host "Restoring" $packageConfig.FullName
-	src\.nuget\nuget.exe i $packageConfig.FullName -o src\packages
+	src\.nuget\nuget.exe install $packageConfig.FullName -o src\packages
 }
 
 Import-Module .\src\packages\psake.4.3.2\tools\psake.psm1
