@@ -13,7 +13,7 @@
             owinResponse.Environment["server.OnSendingHeaders"] = new Action<Action<object>, object>((action, obj) => action(obj));
             owinResponse.OnSendingHeaders(str =>
             {
-                str.ShouldBeTypeOf(typeof(string));
+                str.GetType().ShouldBe(typeof(string));
                 str.ShouldBe("Strongly typed!");
             },"Strongly typed!");
 

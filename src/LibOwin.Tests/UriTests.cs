@@ -32,7 +32,7 @@ namespace LibOwin.Owin
         private IOwinRequest CreateRequest(string pathBase, string path, string query)
         {
             IOwinRequest request = new OwinRequest();
-            request.Scheme = Uri.UriSchemeHttp;
+            request.Scheme = "http";
             request.Host = new HostString("host:1");
             request.PathBase = new PathString(pathBase);
             request.Path = new PathString(path);
