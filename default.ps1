@@ -31,10 +31,13 @@ task RunTests -depends Compile {
 }
 
 task CreatePP {
+	if (!(Test-Path $buildOutputDir\Content\App_Packages)){
+		New-Item $buildOutputDir\Content\App_Packages -Type Directory
+	}
 	(Get-Content $srcDir\$projectName\LibOwin.cs) | Foreach-Object {
 		$_ -replace 'namespace LibOwin', 'namespace $rootnamespace$.LibOwin' `
 		-replace 'using LibOwin', 'using $rootnamespace$.LibOwin'
-		} | Set-Content $buildOutputDir\LibOwin.cs.pp
+		} | Set-Content $buildOutputDir\Content\App_Packages\LibOwin.cs.pp
 }
 
 task CreateNuGetPackage -depends CreatePP {
